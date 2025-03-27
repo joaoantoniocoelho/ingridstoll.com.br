@@ -1,0 +1,30 @@
+# https://www.ingridstoll.com.br/robots.txt
+# Permite todos os robôs de mecanismos de busca acessarem todos os conteúdos
+User-agent: *
+Allow: /
+
+# Diretivas específicas para principais mecanismos de busca
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandexbot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Para bots de redes sociais
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Localização do sitemap
+Sitemap: https://www.ingridstoll.com.br/sitemap.xml
+
+# Taxa de rastreamento para evitar sobrecarga do servidor
+Crawl-delay: 1
