@@ -36,11 +36,12 @@ const About = () => {
           >
             <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
               <Image 
-                src="/images/psicologa-porto-alegre.jpg" 
+                src="/images/hero-picture.jpg" 
                 alt="Ingrid Stoll - Psicóloga e Psicanalista em Porto Alegre" 
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                style={{ objectPosition: 'center 20%' }}
                 priority={false}
               />
             </div>

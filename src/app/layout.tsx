@@ -17,6 +17,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.ingridstoll.com.br'),
   title: 'Ingrid Stoll | Psicóloga e Psicanalista em Porto Alegre | Atendimento Online',
   description: 'Ingrid Stoll - Psicóloga e Psicanalista em Porto Alegre com atendimento online. Especialista em neurociência e psicanálise para tratamento de ansiedade, depressão e autoconhecimento.',
   keywords: 'psicóloga porto alegre, psicanalista online, terapia online, Ingrid Stoll, neurociência, psicanálise, saúde mental, ansiedade, depressão, autoconhecimento',
