@@ -65,7 +65,8 @@ const BlogCarousel = () => {
     if (!carouselRef.current) return;
     
     setIsDragging(true);
-    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    const rect = carouselRef.current.getBoundingClientRect();
+    setStartX(e.clientX - rect.left);
     setScrollLeft(carouselRef.current.scrollLeft);
   };
 
@@ -76,7 +77,8 @@ const BlogCarousel = () => {
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !carouselRef.current) return;
     
-    const x = e.pageX - carouselRef.current.offsetLeft;
+    const rect = carouselRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
     const walk = (x - startX) * 2;
     carouselRef.current.scrollLeft = scrollLeft - walk;
   };
@@ -86,14 +88,16 @@ const BlogCarousel = () => {
     if (!carouselRef.current) return;
     
     setIsDragging(true);
-    setStartX(e.touches[0].pageX - (carouselRef.current.offsetLeft || 0));
+    const rect = carouselRef.current.getBoundingClientRect();
+    setStartX(e.touches[0].clientX - rect.left);
     setScrollLeft(carouselRef.current.scrollLeft || 0);
   };
 
   const handleTouchMove = (e: TouchEvent) => {
     if (!isDragging || !carouselRef.current) return;
     
-    const x = e.touches[0].pageX - (carouselRef.current.offsetLeft || 0);
+    const rect = carouselRef.current.getBoundingClientRect();
+    const x = e.touches[0].clientX - rect.left;
     const walk = (x - startX) * 2;
     
     // Detect swipe direction
@@ -123,7 +127,8 @@ const BlogCarousel = () => {
   // Scroll to active index when it changes
   useEffect(() => {
     if (carouselRef.current) {
-      const scrollAmount = activeIndex * carouselRef.current.offsetWidth;
+      const rect = carouselRef.current.getBoundingClientRect();
+      const scrollAmount = activeIndex * rect.width;
       carouselRef.current.scrollTo({
         left: scrollAmount,
         behavior: 'smooth',
@@ -135,12 +140,13 @@ const BlogCarousel = () => {
   useEffect(() => {
     const handleResize = () => {
       if (carouselRef.current) {
-        const scrollAmount = activeIndex * carouselRef.current.offsetWidth;
+        const rect = carouselRef.current.getBoundingClientRect();
+        const scrollAmount = activeIndex * rect.width;
         carouselRef.current.scrollLeft = scrollAmount;
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
   }, [activeIndex]);
 

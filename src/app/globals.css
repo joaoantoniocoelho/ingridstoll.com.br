@@ -46,6 +46,11 @@
     @apply w-full px-4 py-3 bg-white/80 backdrop-blur-sm border border-slate-300 rounded-lg focus:ring-2 
     focus:ring-serene/50 focus:border-serene outline-none transition duration-200;
   }
+  
+  /* Fix for h1 inside section warning */
+  .hero-title {
+    font-size: 2.25rem; /* Base font size (36px) equivalent to text-4xl */
+  }
 }
 
 /* Animation for page transitions */

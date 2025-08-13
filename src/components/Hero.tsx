@@ -16,17 +16,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex flex-col justify-center max-w-2xl"
           >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-sm uppercase tracking-wider text-serene-dark font-semibold mb-2 text-center"
-            >
-              Psicóloga e Psicanalista em Porto Alegre
-            </motion.div>
             
             {/* Optimize h1 for LCP and SEO */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-center">
+            <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-center">
               <span className="text-serene">Ingrid Stoll</span>
               <div className="text-2xl md:text-3xl mt-2">Psicóloga e Psicanalista</div>
             </h1>
