@@ -1,69 +1,65 @@
 	import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
 	],
-	prefix: "",
 	theme: {
-		container: {
-			center: true,
-			padding: '2rem',
-			screens: {
-				'2xl': '1400px'
-			}
-		},
 		extend: {
 			colors: {
-				serene: {
-					DEFAULT: '#7095C0',
-					light: '#A7C3E6',
-					dark: '#5A7DA8',
+				// Cores principais do site (baseadas no antigo "serene")
+				primary: {
+					DEFAULT: '#7095C0', // Azul principal - calmo e profissional
+					light: '#A7C3E6',   // Azul claro - para backgrounds suaves
+					dark: '#5A7DA8',    // Azul escuro - para textos e botões
 				},
-				slate: {
-					100: '#F5F5F5',
-					200: '#E0E0E0',
-					300: '#CCCCCC',
-					400: '#8A8A8A',
-					500: '#595959',
-					600: '#404040',
-					700: '#2E2E2E',
-					800: '#1F1F1F',
-					900: '#121212',
+				// Cores neutras (mantendo apenas as necessárias)
+				neutral: {
+					50: '#f8fafc',
+					100: '#f1f5f9', 
+					200: '#e2e8f0',
+					300: '#cbd5e1',
+					400: '#94a3b8',
+					500: '#64748b',
+					600: '#475569',
+					700: '#334155',
+					800: '#1e293b',
+					900: '#0f172a',
 				}
 			},
 			fontFamily: {
-				sans: ['SF Pro Display', 'Helvetica', 'Arial', 'sans-serif'],
-			},
-			keyframes: {
-				'fade-in': {
-					'0%': { opacity: '0', transform: 'translateY(10px)' },
-					'100%': { opacity: '1', transform: 'translateY(0)' }
-				},
-				'fade-in-right': {
-					'0%': { opacity: '0', transform: 'translateX(20px)' },
-					'100%': { opacity: '1', transform: 'translateX(0)' }
-				},
-				'float': {
-					'0%, 100%': { transform: 'translateY(0)' },
-					'50%': { transform: 'translateY(-10px)' }
-				},
-				'pulse-soft': {
-					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.8' }
-				}
+				sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
 			},
 			animation: {
-				'fade-in': 'fade-in 0.7s ease-out',
-				'fade-in-right': 'fade-in-right 0.7s ease-out',
-				'float': 'float 6s ease-in-out infinite',
-				'pulse-soft': 'pulse-soft 3s ease-in-out infinite'
-			}
+				'fade-in': 'fadeIn 0.6s ease-out forwards',
+				'slide-up': 'slideUp 0.6s ease-out forwards',
+				'scale-hover': 'scaleHover 0.2s ease-out',
+				'bounce-gentle': 'bounceGentle 2s infinite',
+			},
+			keyframes: {
+				fadeIn: {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' },
+				},
+				slideUp: {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
+				},
+				scaleHover: {
+					'0%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' },
+					'100%': { transform: 'scale(1)' },
+				},
+				bounceGentle: {
+					'0%, 20%, 50%, 80%, 100%': { transform: 'translateY(0)' },
+					'40%': { transform: 'translateY(-10px)' },
+					'60%': { transform: 'translateY(-5px)' },
+				},
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [],
 } satisfies Config;

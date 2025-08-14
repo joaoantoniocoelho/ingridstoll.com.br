@@ -2,38 +2,26 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-slate-50">
+    <section id="about" className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-sm text-serene uppercase tracking-wider font-semibold mb-3 block"
-          >
+          <span className="text-sm text-primary uppercase tracking-wider font-semibold mb-3 block">
             Conheça Melhor
-          </motion.span>
+          </span>
           
-          <h2 className="section-title">Sobre Mim</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center relative pb-6 after:content-[''] after:absolute after:w-24 after:h-1.5 after:bg-primary after:left-1/2 after:transform after:-translate-x-1/2 after:bottom-0 after:rounded-full after:mt-4">Sobre Mim</h2>
           
-          <p className="text-lg text-slate-700 mt-10">
+          <p className="text-lg text-neutral-700 mt-10">
             Psicóloga e Psicanalista dedicada à saúde mental, com atuação em Porto Alegre e atendimento online para todo o Brasil.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
+          <div className="relative">
+            <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
               <Image 
                 src="/images/hero-picture.jpg" 
@@ -46,17 +34,13 @@ const About = () => {
               />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
-              <p className="text-sm font-medium text-serene-dark">CRP 07/XXXXX</p>
-              <p className="text-xs text-slate-500">Conselho Regional de Psicologia do RS</p>
+              <p className="text-sm font-medium text-primary-dark">CRP 07/XXXXX</p>
+              <p className="text-xs text-neutral-500">Conselho Regional de Psicologia do RS</p>
             </div>
-          </motion.div>
+            </div>
+          </div>
           
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
+          <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <h3 className="text-2xl font-bold mb-6 text-slate-800">Ingrid Stoll - <span className="text-serene">Psicóloga e Psicanalista</span></h3>
             
             <div className="space-y-6 text-slate-600">
@@ -88,7 +72,7 @@ const About = () => {
                 </ul>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

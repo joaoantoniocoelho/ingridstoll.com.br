@@ -1,28 +1,22 @@
 "use client"
 
 import React from 'react';
-import { motion } from 'framer-motion';
+
 import MapComponent from './MapComponent';
 
 const Contact = () => {
 
   return (
-    <section id="contact" className="py-20 bg-slate-50">
+    <section id="contact" className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-sm text-serene uppercase tracking-wider font-semibold mb-3 block"
-          >
+          <span className="text-sm text-primary uppercase tracking-wider font-semibold mb-3 block animate-fade-in">
             Vamos Conversar
-          </motion.span>
+          </span>
           
-          <h2 className="section-title">Entre em Contato</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center relative pb-6 after:content-[''] after:absolute after:w-24 after:h-1.5 after:bg-primary after:left-1/2 after:transform after:-translate-x-1/2 after:bottom-0 after:rounded-full after:mt-4">Entre em Contato</h2>
           
-          <p className="text-lg text-slate-700 mt-10">
+          <p className="text-lg text-neutral-700 mt-10">
             Agende sua consulta com a Psicóloga e Psicanalista Ingrid Stoll em Porto Alegre ou online.
             O primeiro passo para cuidar da sua saúde mental começa aqui.
           </p>
@@ -31,51 +25,46 @@ const Contact = () => {
         {/* Contact and Map Section - Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Contact Information Card */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <div className="bg-white rounded-lg shadow-md p-8 h-full flex flex-col">
               <h3 className="text-xl font-semibold mb-6 text-slate-800">Informações de Contato</h3>
               
               <div className="space-y-6 flex-grow">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-serene/10 flex items-center justify-center text-serene">
+                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h4 className="text-md font-medium text-slate-800">Telefone/WhatsApp</h4>
-                    <p className="text-slate-600">(51) 9xxxx-xxxx</p>
+                  <h4 className="text-md font-medium text-neutral-800">Telefone/WhatsApp</h4>
+                  <p className="text-neutral-600">(51) 9xxxx-xxxx</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-serene/10 flex items-center justify-center text-serene">
+                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h4 className="text-md font-medium text-slate-800">Endereço do Consultório</h4>
-                    <p className="text-slate-600">Av. Cristóvão Colombo, 580 - Floresta</p>
-                    <p className="text-slate-600">Porto Alegre, RS - 90560-000</p>
+                  <h4 className="text-md font-medium text-neutral-800">Endereço do Consultório</h4>
+                  <p className="text-neutral-600">Av. Cristóvão Colombo, 580 - Floresta</p>
+                  <p className="text-neutral-600">Porto Alegre, RS - 90560-000</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-serene/10 flex items-center justify-center text-serene">
+                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h4 className="text-md font-medium text-slate-800">Horário de Atendimento</h4>
-                    <p className="text-slate-600">Segunda a Sexta: 8h às 18h</p>
+                  <h4 className="text-md font-medium text-neutral-800">Horário de Atendimento</h4>
+                  <p className="text-neutral-600">Segunda a Sexta: 8h às 18h</p>
                   </div>
                 </div>
               </div>
@@ -100,18 +89,13 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
-
+          </div>
+        
           {/* Map Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+        <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <MapComponent />
-          </motion.div>
-        </div>
+          </div>
+          </div>
       </div>
     </section>
   );

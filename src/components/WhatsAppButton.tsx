@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const WhatsAppButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,45 +52,28 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <AnimatePresence>
+    <>
       {isVisible && (
-        <motion.div
-          initial={{ scale: 0, opacity: 0, y: 100 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0, opacity: 0, y: 100 }}
-          transition={{ 
-            type: "spring", 
-            stiffness: 260, 
-            damping: 20,
-            duration: 0.6 
-          }}
-          className="fixed bottom-6 right-6 z-50"
+        <div
+          className="fixed bottom-6 right-6 z-50 animate-slide-up"
         >
           {/* Tooltip mais elegante */}
-          <AnimatePresence>
-            {showTooltip && (
-              <motion.div
-                initial={{ opacity: 0, x: 10, y: 5 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                exit={{ opacity: 0, x: 10, y: 5 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                className="absolute right-16 top-2 bg-slate-800 text-white px-3 py-2 rounded-lg shadow-xl text-sm font-medium whitespace-nowrap"
-                style={{ backdropFilter: 'blur(8px)' }}
-              >
-                Fale comigo! 💬
-                <div className="absolute right-0 top-1/2 transform translate-x-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45"></div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {showTooltip && (
+            <div
+              className="absolute right-16 top-2 bg-neutral-800 text-white px-3 py-2 rounded-lg shadow-xl text-sm font-medium whitespace-nowrap animate-fade-in"
+              style={{ backdropFilter: 'blur(8px)' }}
+            >
+              Fale comigo! 💬
+              <div className="absolute right-0 top-1/2 transform translate-x-1 -translate-y-1/2 w-2 h-2 bg-neutral-800 rotate-45"></div>
+            </div>
+          )}
 
           {/* Botão principal */}
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={handleClick}
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
-            className="group relative w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+            className="group relative w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center"
             aria-label="Entrar em contato via WhatsApp"
           >
             {/* Ícone do WhatsApp */}
@@ -110,10 +92,10 @@ const WhatsAppButton = () => {
 
             {/* Animação de pulso sutil */}
             <div className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-15"></div>
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

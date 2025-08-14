@@ -1,7 +1,5 @@
 "use client"
 
-import { motion } from 'framer-motion';
-
 const services = [
   {
     id: 1,
@@ -77,22 +75,16 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-slate-50">
+    <section id="services" className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-sm text-serene uppercase tracking-wider font-semibold mb-3 block"
-          >
+          <span className="text-sm text-primary uppercase tracking-wider font-semibold mb-3 block animate-fade-in">
             Serviços
-          </motion.span>
+          </span>
           
-          <h2 className="section-title">Atendimento Especializado</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center relative pb-6 after:content-[''] after:absolute after:w-24 after:h-1.5 after:bg-primary after:left-1/2 after:transform after:-translate-x-1/2 after:bottom-0 after:rounded-full after:mt-4">Atendimento Especializado</h2>
           
-          <p className="text-lg text-slate-700 mt-10">
+          <p className="text-lg text-neutral-700 mt-10">
             Como Psicóloga e Psicanalista em Porto Alegre, ofereço atendimento presencial 
             e online para todo o Brasil, com abordagem integrativa baseada em psicanálise e neurociência.
           </p>
@@ -100,13 +92,10 @@ const Services = () => {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <motion.div 
+            <div 
               key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="flex flex-col h-full"
+              className="flex flex-col h-full animate-fade-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={`${service.color} p-6 rounded-lg h-72 flex flex-col`}>
                 <div className="flex items-start mb-4">
@@ -121,17 +110,11 @@ const Services = () => {
                 
                 <p className="text-slate-700">{service.description}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
         
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 bg-white rounded-lg shadow-md p-6 max-w-4xl mx-auto"
-        >
+        <div className="mt-16 bg-white rounded-lg shadow-md p-6 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <h3 className="text-xl font-bold text-slate-800 mb-4 text-center">
             Modalidades de Atendimento
           </h3>
@@ -150,7 +133,7 @@ const Services = () => {
                 com ambiente acolhedor e privativo para suas sessões.
               </p>
               <div className="ml-7 mt-2">
-                <span className="inline-block bg-serene/10 text-serene text-xs font-medium px-2 py-0.5 rounded-full">
+                <span className="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full min-h-[32px] flex items-center">
                   Porto Alegre - RS
                 </span>
               </div>
@@ -158,7 +141,7 @@ const Services = () => {
             
             <div className="bg-slate-50 p-4 rounded-lg">
               <div className="flex items-center mb-2">
-                <svg className="h-5 w-5 text-serene mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
                 <h4 className="text-base font-medium text-slate-800">Online</h4>
@@ -168,7 +151,7 @@ const Services = () => {
                 segura e confidencial, disponível para pacientes de todo o Brasil.
               </p>
               <div className="ml-7 mt-2">
-                <span className="inline-block bg-serene/10 text-serene text-xs font-medium px-2 py-0.5 rounded-full">
+                <span className="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full min-h-[32px] flex items-center">
                   Todo o Brasil
                 </span>
               </div>
@@ -176,14 +159,14 @@ const Services = () => {
           </div>
           
           <div className="text-center mt-6">
-            <a href="#contact" className="button-primary inline-flex items-center">
+            <a href="#contact" className="bg-primary-dark text-white font-semibold py-4 px-8 rounded-md hover:bg-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-light focus:ring-opacity-50 shadow-md min-h-[44px] min-w-[44px] inline-flex items-center">
               Agendar Consulta
               <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

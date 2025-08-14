@@ -3,78 +3,50 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-slate-300;
-  }
-  
   html {
-    @apply scroll-smooth;
+    scroll-behavior: smooth;
+    font-display: swap;
   }
   
   body {
-    @apply font-sans text-slate-800 bg-gradient-to-b from-slate-50 to-white;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    color: #334155;
+    background: linear-gradient(to bottom, #f8fafc, #ffffff);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-@layer components {
-  .glass {
-    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-lg;
+/* Optimize animations with will-change and contain properties */
+@layer utilities {
+  .animate-smooth {
+    will-change: transform, opacity;
+    contain: layout style paint;
   }
   
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24;
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   .section-title {
     @apply text-4xl md:text-5xl font-bold mb-12 text-center relative pb-6;
   }
-
+  
   .section-title::after {
-    content: "";
-    @apply absolute w-24 h-1.5 bg-serene left-1/2 transform -translate-x-1/2 bottom-0 rounded-full mt-4;
+    content: '';
+    position: absolute;
+    width: 6rem;
+    height: 0.375rem;
+    background-color: #7095C0;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-radius: 9999px;
+    margin-top: 1rem;
   }
   
   .button-primary {
-    @apply bg-serene-dark text-white font-semibold py-2.5 px-6 rounded-md hover:bg-black transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-serene-light focus:ring-opacity-50 shadow-md;
+    @apply bg-primary-dark text-white font-semibold py-4 px-8 rounded-md hover:bg-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-light focus:ring-opacity-50 shadow-md min-h-[44px] min-w-[44px];
   }
-  
-  .button-secondary {
-    @apply bg-transparent text-serene-dark font-semibold py-2 px-6 rounded-md border-2 border-serene-dark hover:bg-serene-dark hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-serene-light focus:ring-opacity-50;
-  }
-  
-  .input-field {
-    @apply w-full px-4 py-3 bg-white/80 backdrop-blur-sm border border-slate-300 rounded-lg focus:ring-2 
-    focus:ring-serene/50 focus:border-serene outline-none transition duration-200;
-  }
-  
-  /* Fix for h1 inside section warning */
-  .hero-title {
-    font-size: 2.25rem; /* Base font size (36px) equivalent to text-4xl */
-  }
-}
-
-/* Animation for page transitions */
-.page-enter {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.page-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms, transform 300ms;
-}
-
-.page-exit {
-  opacity: 1;
-}
-
-.page-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
-}
-
-/* Add smooth scrolling */
-html {
-  scroll-behavior: smooth;
 } 

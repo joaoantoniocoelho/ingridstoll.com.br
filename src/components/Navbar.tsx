@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,11 +25,8 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 animate-slide-up ${
         isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'
       }`}
       role="navigation"
@@ -39,10 +36,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <a 
             href="#home" 
-            className="text-2xl font-bold text-serene-dark flex items-center space-x-2"
+            className="text-2xl font-bold text-primary-dark flex items-center space-x-2"
             aria-label="Voltar para o início"
           >
-            <span className="w-10 h-10 bg-serene rounded-full flex items-center justify-center text-white">
+            <span className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white">
               I
             </span>
             <span>Ingrid Stoll</span>
@@ -54,7 +51,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-slate-700 hover:text-serene-dark font-medium transition-colors duration-200 py-2 px-3"
+                className="text-neutral-700 hover:text-primary-dark font-medium transition-colors duration-200 py-3 px-4 min-h-[44px] flex items-center"
                 aria-label={`Ir para a seção ${item.name}`}
               >
                 {item.name}
@@ -65,7 +62,7 @@ const Navbar = () => {
           {/* Mobile Navigation Button */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-serene-dark focus:outline-none"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-neutral-700 hover:text-primary-dark focus:outline-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label="Abrir menu"
@@ -97,19 +94,13 @@ const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden mt-4"
-          >
+          <div className="md:hidden mt-4 animate-fade-in">
             <div className="flex flex-col bg-white rounded-lg shadow-lg p-4 space-y-3">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-slate-700 hover:text-serene-dark font-medium py-2 px-3"
+                  className="text-neutral-700 hover:text-primary-dark font-medium py-3 px-4 min-h-[44px] flex items-center"
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label={`Ir para a seção ${item.name}`}
                 >
@@ -117,10 +108,10 @@ const Navbar = () => {
                 </a>
               ))}
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
