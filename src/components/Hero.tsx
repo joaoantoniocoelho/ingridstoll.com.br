@@ -1,5 +1,3 @@
-"use client"
-
 import React, { lazy, Suspense } from 'react';
 
 // Lazy load heavy animation components

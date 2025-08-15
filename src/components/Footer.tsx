@@ -1,5 +1,3 @@
-"use client"
-
 const Footer = () => {
   return (
     <footer className="bg-neutral-900 text-white py-16">
